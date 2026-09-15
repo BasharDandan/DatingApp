@@ -1,9 +1,9 @@
 -- SQLite
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('bob-id' , 'Bob', 'bob@example.com');
+INSERT INTO Users (id, username)
+VALUES (1, 'bob');
 
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('tom-id' , 'Tom', 'tom@example.com');
+INSERT INTO Users (id, username)
+VALUES (2, 'tom');
 
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('jane-id' , 'Jane', 'jane@example.com');
+INSERT INTO Users (id, username)
+VALUES (3, 'jane');

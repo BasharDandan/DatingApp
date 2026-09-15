@@ -2,9 +2,8 @@ using System;
 
 namespace API.DTOs;
 
-public class RegisterDTO
+public class LoginDTO
 {
-    public string DisplayName { get; set; } = "";
-    public string Email { get; set; } = "";
-    public string Password { get; set; } = "";
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
 }
