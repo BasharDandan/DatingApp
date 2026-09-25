@@ -1,0 +1,41 @@
+[
+  {
+    "Id": "lisa-id",
+    "Email": "lisa@test.com",
+    "Gender": "female",
+    "DateOfBirth": "1986-07-22",
+    "DisplayName": "Lisa",
+    "Created": "2023-06-24T00:00:00Z",
+    "LastActive": "2024-06-21T00:00:00Z",
+    "Description": "Enjoys hiking, good food, and discovering new places.",
+    "City": "Greenbush",
+    "Country": "Martinique",
+    "ImageUrl": "https://randomuser.me/api/portraits/women/54.jpg"
+  },
+  {
+    "Id": "karen-id",
+    "Email": "karen@test.com",
+    "Gender": "female",
+    "DateOfBirth": "1995-10-12",
+    "DisplayName": "Karen",
+    "Created": "2022-09-09T00:00:00Z",
+    "LastActive": "2024-05-06T00:00:00Z",
+    "Description": "Loves music, photography, and weekend adventures.",
+    "City": "London",
+    "Country": "United Kingdom",
+    "ImageUrl": "https://randomuser.me/api/portraits/women/63.jpg"
+  },
+  {
+    "Id": "bob-id",
+    "Email": "bob@test.com",
+    "Gender": "male",
+    "DateOfBirth": "1988-02-19",
+    "DisplayName": "Bob",
+    "Created": "2023-01-15T00:00:00Z",
+    "LastActive": "2024-06-18T00:00:00Z",
+    "Description": "A friendly person who enjoys sports and outdoor life.",
+    "City": "Toronto",
+    "Country": "Canada",
+    "ImageUrl": "https://randomuser.me/api/portraits/men/32.jpg"
+  }
+]

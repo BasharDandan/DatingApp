@@ -1,11 +1,12 @@
 using System;
 using System.Net;
 using System.Text.Json;
+using API.Errors;
 
 namespace API.Middleware;
 
-public class ExcptionMiddleware(RequestDelegate next ,
-    ILogger<ExceptionMiddleware> logger , IHostEnvironment env)
+public class ExceptionHandlerMiddleware(RequestDelegate next ,
+    ILogger<ExceptionHandlerMiddleware> logger , IHostEnvironment env)
 {
     public async Task InvokeAsync(HttpContext context)
     {

@@ -1,0 +1,129 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace API.Data.Migrations
+{
+    /// <inheritdoc />
+    public partial class MemberEntityAdded : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AlterColumn<byte[]>(
+                name: "PasswordSalt",
+                table: "Users",
+                type: "BLOB",
+                nullable: true,
+                oldClrType: typeof(byte[]),
+                oldType: "BLOB");
+
+            migrationBuilder.AlterColumn<byte[]>(
+                name: "PasswordHash",
+                table: "Users",
+                type: "BLOB",
+                nullable: true,
+                oldClrType: typeof(byte[]),
+                oldType: "BLOB");
+
+            migrationBuilder.AddColumn<string>(
+                name: "ImageUrl",
+                table: "Users",
+                type: "TEXT",
+                nullable: true);
+
+            migrationBuilder.CreateTable(
+                name: "Member",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    DateOfBirth = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    DisplayName = table.Column<string>(type: "TEXT", nullable: false),
+                    Created = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    LastActive = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Gender = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    City = table.Column<string>(type: "TEXT", nullable: false),
+                    Country = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Member", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Url = table.Column<string>(type: "TEXT", nullable: false),
+                    PublicId = table.Column<string>(type: "TEXT", nullable: true),
+                    MemberId = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Photos_Member_MemberId",
+                        column: x => x.MemberId,
+                        principalTable: "Member",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_MemberId",
+                table: "Photos",
+                column: "MemberId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Users_Member_Id",
+                table: "Users",
+                column: "Id",
+                principalTable: "Member",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Users_Member_Id",
+                table: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Photos");
+
+            migrationBuilder.DropTable(
+                name: "Member");
+
+            migrationBuilder.DropColumn(
+                name: "ImageUrl",
+                table: "Users");
+
+            migrationBuilder.AlterColumn<byte[]>(
+                name: "PasswordSalt",
+                table: "Users",
+                type: "BLOB",
+                nullable: false,
+                defaultValue: new byte[0],
+                oldClrType: typeof(byte[]),
+                oldType: "BLOB",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<byte[]>(
+                name: "PasswordHash",
+                table: "Users",
+                type: "BLOB",
+                nullable: false,
+                defaultValue: new byte[0],
+                oldClrType: typeof(byte[]),
+                oldType: "BLOB",
+                oldNullable: true);
+        }
+    }
+}
